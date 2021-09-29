@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>this is signup page</h1>
+
+
+<form method="POST" novalidate>
+             {% csrf_token %}
+
+                {% for form in fm %}
+              	<div class="form-group">
+                 {{form.label_tag}} {{form}} {{form.errors|striptags}}</div>
+                {% endfor %}
+               	
+               <input type="submit" value="Register">
+
+               {% if fm.non_fields_errors %}
+                {% for error in fm.non_fields_errors  %}
+                 <p>{{error}}</p>
+                {% endfor %}
+               {% endif %}
+         </form>
+
+
+{% if messages %}
+ {% for message in messages %}
+  <li class="text-success">{{message}}</li>
+ {% endfor %}
+{% endif %}
+
+{% endblock content %}

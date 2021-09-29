@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.min.css' %}">
+	<title>edit</title>
+</head>
+<body>
+<form method="POST" novalidate>{% csrf_token %}
+   <div class="form-group">
+    {% for data in form %}
+      <h4>{{data.label_tag}}</h4>{{data}}
+    {% endfor %}
+   </textarea>
+  </div>
+  <input type="submit" name="" value="Update" class="btn btn-info">
+</form>
+
+</body>
+</html>
