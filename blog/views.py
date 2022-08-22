@@ -72,7 +72,7 @@ def user_login(request):
 
 def User_logout(request):
 	logout(request)
-	# messages.info(request, "Logged out successfully!")
+	# messages.info(request, "Logged out successfully!")UPDATED
 	return render(request,'blog/home.html')
 
 
